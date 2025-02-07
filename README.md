@@ -78,4 +78,3 @@ Before deploying a new service or app to staging or production,
 it must first be added to the [Flux clusters configuration](https://github.com/uniphore/platform-flux).
 If there is no Flux configuration for the service, the deploy job in the CI/CD pipeline will have no effect.
 
-For more information about Flux configuration, please refer to the [application provisioning](https://platform.cloud.uniphore.com/application_provisioning.html) documentation.

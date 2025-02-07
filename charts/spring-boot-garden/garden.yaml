@@ -1,22 +1,22 @@
 ---
 kind: Module
 type: helm
-name: hello-world-java
+name: spring-boot-garden
 
 serviceResource:
   kind: Deployment
-  name: hello-world-java
-  containerModule: hello-world-java-image
+  name: spring-boot-garden
+  containerModule: spring-boot-garden-image
 
 build:
   dependencies:
-    - name: hello-world-java-image
+    - name: spring-boot-garden-image
 
 values:
   logLevel: ${var.logLevel}
 
   image:
-    id: ${modules.hello-world-java-image.outputs.deployment-image-id}
+    id: ${modules.spring-boot-garden-image.outputs.deployment-image-id}
 
   replicaCount: ${var.replicas}
   autoscaling:

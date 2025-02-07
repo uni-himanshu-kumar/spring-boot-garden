@@ -1,6 +1,6 @@
 ---
 kind: Project
-name: hello-world-java
+name: spring-boot-garden
 
 variables:
   logLevel: DEBUG

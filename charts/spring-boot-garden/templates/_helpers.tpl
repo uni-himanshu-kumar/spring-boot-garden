@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "hello-world-java.name" -}}
+{{- define "spring-boot-garden.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "hello-world-java.fullname" -}}
+{{- define "spring-boot-garden.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "hello-world-java.chart" -}}
+{{- define "spring-boot-garden.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "hello-world-java.labels" -}}
-helm.sh/chart: {{ include "hello-world-java.chart" . }}
-{{ include "hello-world-java.selectorLabels" . }}
+{{- define "spring-boot-garden.labels" -}}
+helm.sh/chart: {{ include "spring-boot-garden.chart" . }}
+{{ include "spring-boot-garden.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,27 +45,27 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "hello-world-java.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "hello-world-java.name" . }}
+{{- define "spring-boot-garden.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "spring-boot-garden.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-{{ include "hello-world-java.datadog.labels" . }}
+{{ include "spring-boot-garden.datadog.labels" . }}
 {{- end }}
 
 {{/*
 Datadog labels
 */}}
-{{- define "hello-world-java.datadog.labels" -}}
+{{- define "spring-boot-garden.datadog.labels" -}}
 tags.datadoghq.com/env: {{ .Values.datadog.env | required "datadog.env required" }}
-tags.datadoghq.com/service: {{ include "hello-world-java.fullname" . }}
+tags.datadoghq.com/service: {{ include "spring-boot-garden.fullname" . }}
 {{- end }}
 
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "hello-world-java.serviceAccountName" -}}
+{{- define "spring-boot-garden.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "hello-world-java.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "spring-boot-garden.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -74,13 +74,13 @@ Create the name of the service account to use
 {{/*
 TLS on Ingress
 */}}
-{{- define "hello-world-java.ingress.annotations" -}}
+{{- define "spring-boot-garden.ingress.annotations" -}}
 {{- if ne .Values.ingress.domainName "localhost" -}}
 ingress.kubernetes.io/force-ssl-redirect: "true"
 {{- end }}
 {{- end }}
 
-{{- define "hello-world-java.ingress.tls" -}}
+{{- define "spring-boot-garden.ingress.tls" -}}
 {{- if ne .Values.ingress.domainName "localhost" -}}
 tls:
   - hosts:

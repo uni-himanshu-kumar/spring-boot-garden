@@ -5,12 +5,12 @@ info:
   version: v1
   title: Platform Hello World Java service API
 servers:
-  - url: https://api.us.cloud.uniphore.com/hello-world-java
+  - url: https://api.us.cloud.uniphore.com/spring-boot-garden
     description: Production (US Region)
-  - url: https://api.us.cloud.uniphorestaging.com/hello-world-java
+  - url: https://api.us.cloud.uniphorestaging.com/spring-boot-garden
     description: Staging (US Region)
 tags:
-  - name: hello-world-java
+  - name: spring-boot-garden
     description: Platform Hello World
   - name: internals
     description: Everything about internal service managament
@@ -19,7 +19,7 @@ paths:
     get:
       summary: Returns Hello World
       tags:
-        - hello-world-java
+        - spring-boot-garden
       operationId: getHelloWorld
       responses:
         "200":

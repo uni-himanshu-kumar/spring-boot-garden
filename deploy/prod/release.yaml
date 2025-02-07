@@ -1,9 +1,9 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: hello-world-java
+  name: spring-boot-garden
 spec:
-  releaseName: hello-world-java
+  releaseName: spring-boot-garden
   targetNamespace: platform
   values:
     datadog:

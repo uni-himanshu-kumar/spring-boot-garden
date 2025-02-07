@@ -5,8 +5,8 @@ base:
   log:
     level: DEBUG
 app:
-  default_name: hello-world-java
-  default_description: Deployment of hello-world-java service
+  default_name: spring-boot-garden
+  default_description: Deployment of spring-boot-garden service
   default_chart_version: 0.1.0
   default_app_version: 0.1.0
 repos:

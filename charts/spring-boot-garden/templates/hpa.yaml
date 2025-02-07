@@ -1,11 +1,11 @@
 {{- if .Values.autoscaling.enabled }}
-{{- $fullName := include "hello-world-java.fullname" . -}}
+{{- $fullName := include "spring-boot-garden.fullname" . -}}
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "hello-world-java.labels" . | nindent 4 }}
+    {{- include "spring-boot-garden.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hello-world-java.fullname" . }}
+  name: {{ include "spring-boot-garden.fullname" . }}
   labels:
-    {{- include "hello-world-java.labels" . | nindent 4 }}
+    {{- include "spring-boot-garden.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -11,4 +11,4 @@ spec:
       port: 80
       targetPort: {{ .Values.service.port | required "service.port required" }}
   selector:
-    {{- include "hello-world-java.selectorLabels" . | nindent 4 }}
+    {{- include "spring-boot-garden.selectorLabels" . | nindent 4 }}

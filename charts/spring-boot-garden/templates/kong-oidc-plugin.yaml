@@ -1,7 +1,7 @@
 apiVersion: configuration.konghq.com/v1
 kind: KongPlugin
 metadata:
-  name: hello-world-java-oidc
+  name: spring-boot-garden-oidc
   annotations:
     kubernetes.io/ingress.class: kong
 plugin: openid-connect

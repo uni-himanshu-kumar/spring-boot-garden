@@ -1,6 +1,6 @@
 schema-version: v2.2
 dd-service: spring-boot-garden
-team: platform
+team: uassist
 application: platform-sample-app
 description: Template service for Java
 tier: "4"

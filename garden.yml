@@ -1,8 +1,8 @@
 ---
 kind: Module
 type: jib-container
-name: hello-world-java-image
-image: hello-world-java
+name: spring-boot-garden-image
+image: spring-boot-garden
 exclude:
   - ./charts
   - ./deploy
@@ -12,7 +12,7 @@ build:
 ---
 kind: Module
 type: exec
-name: hello-world-java-tests
+name: spring-boot-garden-tests
 exclude:
   - ./charts
   - ./deploy

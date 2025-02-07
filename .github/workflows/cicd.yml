@@ -7,7 +7,7 @@ name: Platform CI/CD
   workflow_call:
 jobs:
   CI:
-    if: github.repository == 'uniphore/platform-hello-world-java'
+    if: github.repository == 'uniphore/spring-boot-garden'
     uses: uniphore/platform-github-actions/.github/workflows/ci.yml@main
     secrets: inherit
     # Custom values, uncomment to enable:

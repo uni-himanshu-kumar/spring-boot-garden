@@ -1,5 +1,5 @@
 schema-version: v2.2
-dd-service: hello-world-java
+dd-service: spring-boot-garden
 team: platform
 application: platform-sample-app
 description: Template service for Java
@@ -16,10 +16,10 @@ links:
   - name: Source Code
     type: repo
     provider: github
-    url: https://github.com/uniphore/platform-hello-world-java
+    url: https://github.com/uniphore/spring-boot-garden
   - name: Docs
     type: doc
-    url: https://github.com/uniphore/platform-hello-world-java/blob/main/README.md
+    url: https://github.com/uniphore/spring-boot-garden/blob/main/README.md
 tags: []
 integrations:
   pagerduty:

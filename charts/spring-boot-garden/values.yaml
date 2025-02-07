@@ -23,7 +23,7 @@ imagePullSecrets:
   - name: uniphore-secret
 
 nameOverride: ""
-fullnameOverride: hello-world-java
+fullnameOverride: spring-boot-garden
 
 serviceAccount:
   create: false

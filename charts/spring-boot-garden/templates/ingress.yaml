@@ -1,23 +1,23 @@
 {{- if .Values.ingress.enabled }}
-{{- $fullName := include "hello-world-java.fullname" . -}}
+{{- $fullName := include "spring-boot-garden.fullname" . -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    {{- include "hello-world-java.labels" . | nindent 4 }}
+    {{- include "spring-boot-garden.labels" . | nindent 4 }}
   annotations:
     konghq.com/strip-path: "true"
-    konghq.com/plugins: hello-world-java-cors, hello-world-java-claims, hello-world-java-oidc
-    {{- include "hello-world-java.ingress.annotations" . | nindent 4 }}
+    konghq.com/plugins: spring-boot-garden-cors, spring-boot-garden-claims, spring-boot-garden-oidc
+    {{- include "spring-boot-garden.ingress.annotations" . | nindent 4 }}
 spec:
   ingressClassName: kong
-  {{- include "hello-world-java.ingress.tls" . | nindent 2 }}
+  {{- include "spring-boot-garden.ingress.tls" . | nindent 2 }}
   rules:
     - host: {{ .Values.ingress.hostName }}.{{ .Values.ingress.domainName }}
       http:
         paths:
-          - path: /hello-world-java
+          - path: /spring-boot-garden
             pathType: Prefix
             backend:
               service:

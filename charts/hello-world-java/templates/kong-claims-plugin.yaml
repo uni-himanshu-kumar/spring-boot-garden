@@ -1,0 +1,5 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: hello-world-java-claims
+plugin: kong-plugin-jwt-claims-headers

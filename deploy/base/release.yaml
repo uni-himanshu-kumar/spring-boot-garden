@@ -1,0 +1,32 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: hello-world-java
+spec:
+  releaseName: hello-world-java
+  chart:
+    spec:
+      chart: hello-world-java
+      sourceRef:
+        kind: HelmRepository
+        name: uniphore-oci-charts
+        namespace: flux-system
+      version: "0.1.0-v0cfda265"
+  interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  values:
+    logLevel: INFO
+    image:
+      id: "registry.uniphore.com/uniphore/hello-world-java:v-65a31d1396"
+    replicaCount: 3
+    ingress:
+      hostName: api
+      domainName: ${INGRESS_DOMAIN_NAME}
+      certName: ${CERT_NAME}
+    datadog:
+      env: ""
+    oidc:
+      issuer: ""

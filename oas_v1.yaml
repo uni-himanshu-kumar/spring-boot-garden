@@ -1,0 +1,82 @@
+---
+openapi: 3.0.3
+info:
+  description: Platform Hello World Java service API
+  version: v1
+  title: Platform Hello World Java service API
+servers:
+  - url: https://api.us.cloud.uniphore.com/hello-world-java
+    description: Production (US Region)
+  - url: https://api.us.cloud.uniphorestaging.com/hello-world-java
+    description: Staging (US Region)
+tags:
+  - name: hello-world-java
+    description: Platform Hello World
+  - name: internals
+    description: Everything about internal service managament
+paths:
+  "/":
+    get:
+      summary: Returns Hello World
+      tags:
+        - hello-world-java
+      operationId: getHelloWorld
+      responses:
+        "200":
+          description: A JSON object containing the hello world
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HelloWorld"
+              examples:
+                HelloWorld:
+                  $ref: "#/components/examples/HelloWorld"
+  "/health/liveness":
+    get:
+      summary: Internal endpoint for checking the service's liveness health
+      tags:
+        - internals
+      operationId: getHealthLiveness
+      responses:
+        "200":
+          description: Ok response if service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [ok]
+              example:
+                status: ok
+  "/health/readiness":
+    get:
+      summary: Internal endpoint for checking the service's readiness health
+      tags:
+        - internals
+      operationId: getHealthReadiness
+      responses:
+        "200":
+          description: Ok response if service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [ok]
+              example:
+                status: ok
+components:
+  schemas:
+    HelloWorld:
+      type: object
+      properties:
+        hello:
+          type: string
+  examples:
+    HelloWorld:
+      value:
+        hello: "world"

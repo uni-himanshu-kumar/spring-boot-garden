@@ -1,0 +1,27 @@
+---
+kind: Module
+type: jib-container
+name: hello-world-java-image
+image: hello-world-java
+exclude:
+  - ./charts
+  - ./deploy
+build:
+  jdkVersion: 21
+  dockerBuild: ${environment.name == "local"}
+---
+kind: Module
+type: exec
+name: hello-world-java-tests
+exclude:
+  - ./charts
+  - ./deploy
+local: true
+tests:
+  - name: unit
+    command: [
+      ./gradlew test
+    ]
+    artifacts:
+      - source: build/test-reports
+        target: test-reports

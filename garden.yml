@@ -20,7 +20,7 @@ local: true
 tests:
   - name: unit
     command: [
-      ./gradlew test
+      .\gradlew test
     ]
     artifacts:
       - source: build/test-reports

@@ -1,6 +1,8 @@
 ---
+apiVersion: garden.io/v1
 kind: Project
 name: spring-boot-garden
+dotIgnoreFile: .gitignore
 
 variables:
   logLevel: DEBUG

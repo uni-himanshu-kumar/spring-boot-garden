@@ -27,6 +27,14 @@ spec:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.id }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
           env:
             - name: APP_PORT
               value: {{ .Values.service.port | quote }}
@@ -51,9 +59,9 @@ spec:
             httpGet:
               path: /health/liveness
               port: http
-            initialDelaySeconds: 0
-            periodSeconds: 1
-            timeoutSeconds: 1
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 10
             successThreshold: 1
             failureThreshold: 10
           readinessProbe:

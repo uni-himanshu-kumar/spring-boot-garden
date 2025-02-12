@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloWorldController {
-
 	private final HelloWorldService service;
 
 	public HelloWorldController(HelloWorldService service) {
@@ -29,5 +28,4 @@ public class HelloWorldController {
 	public Map<String,String> healthReadiness() {
 		return Map.of("status", "ok");
 	}
-
 }

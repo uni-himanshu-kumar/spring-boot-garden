@@ -3,7 +3,7 @@ APP_PORT ?= 8080
 
 .PHONY: build
 build:
-	.\gradlew build
+	./gradlew build
 
 .PHONY: test
 test:
